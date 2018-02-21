@@ -8,9 +8,14 @@
  * @see <a href="https://cs125.cs.illinois.edu/lab/8/">Lab 8 Description</a>
  */
 public class Bank {
+    /**
+     *  bannkName.
+     */
+    private String bankName;
 
-    public String bankName;
-
+    /**
+     *   add bank name.
+     */
     public Bank() {
         bankName = "Illini Bank";
     }
