@@ -12,7 +12,14 @@ public class Bank {
      *  bannkName.
      */
     private String bankName;
-
+    /**
+     * owner's name.
+     */
+    private String ownerName;
+    /**
+     * the amount of money in account.
+     */
+    private double amountOfMoney;
     /**
      *   add bank name.
      */
@@ -20,6 +27,16 @@ public class Bank {
         bankName = "Illini Bank";
     }
 
+    /**
+     *
+     * @param name is the name .
+     * @param money is money.
+     */
+    bankAccount(final String name, final double money) {
+        ownerName = name;
+        amountOfMoney = money;
+        System.out.println("an account is created.");
+    }
     /**
      * Withdraw money from an account.
      * <p>
@@ -34,6 +51,16 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount <= 0) {
+            return false;
+        }
+        if (amount <= amountOfMoney) {
+            amountOfMoney -= amount;
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     /**
@@ -50,6 +77,12 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount <= 0) {
+            return false;
+        } else {
+            amountOfMoney = amountOfMoney + amount;
+            return true;
+        }
     }
 
     /**
@@ -82,9 +115,13 @@ public class Bank {
         /*
          * Implement this function
          */
+        ownerName = name;
     }
 
-    public static int totalAccounts = 0;
+    /**
+     * total number of accounts.
+     */
+    private static int totalAccounts = 0;
     /**
      * Uses static variable to get number of bank accounts opened.
      *
@@ -94,6 +131,7 @@ public class Bank {
         /*
          * Implement this function
          */
+
     }
 
     /**
