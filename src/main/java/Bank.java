@@ -29,14 +29,40 @@ public class Bank {
 
     /**
      *
-     * @param name is the name .
-     * @param money is money.
+     * @param name is a name.
+     * @param money is the money.
      */
-    bankAccount(final String name, final double money) {
+    Bank(final String name, final double money) {
         ownerName = name;
         amountOfMoney = money;
-        System.out.println("an account is created.");
+        System.out.println("a new account is created.");
+        totalAccounts++;
     }
+
+    /**
+     *
+     * @return the name.
+     */
+    public String getName() {
+        return ownerName;
+    }
+
+    /**
+     *
+     * @return the amount of money.
+     */
+    public double getMoeny() {
+        return amountOfMoney;
+    }
+
+    /**
+     *
+     * @param name want to set.
+     */
+    public void setName(final String name) {
+        ownerName = name;
+    }
+
     /**
      * Withdraw money from an account.
      * <p>
@@ -102,6 +128,13 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (amount <= 0) {
+            return false;
+        } else {
+            withdrawMoney(source, amount);
+            depositMoney(destination, amount);
+            return true;
+        }
     }
 
     /**
@@ -115,7 +148,7 @@ public class Bank {
         /*
          * Implement this function
          */
-        ownerName = name;
+        this.setName(name);
     }
 
     /**
@@ -131,7 +164,7 @@ public class Bank {
         /*
          * Implement this function
          */
-
+       return totalAccounts;
     }
 
     /**
